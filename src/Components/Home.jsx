@@ -21,14 +21,16 @@ const Home = () => {
           every problem has a solution and everything is achievable through team
           effort.
         </p>
-        <div>
-          <button className="group text-white border-2 px-6 py-3 flex items-center hover:bg-pink-600 hover:border-pink-600">
-            <Link to="Work">View Project</Link>
-            <span className="group-hover:rotate-90 duration-300">
-              <HiArrowRight className="ml-3 " />
-            </span>
-          </button>
-        </div>
+        <Link to="Work" duration={500} offset={50}>
+          <div className="group">
+            <button className=" text-white border-2 px-6 py-3 flex items-center hover:bg-pink-600 hover:border-pink-600">
+              View Project
+              <span className="group-hover:rotate-90 duration-300">
+                <HiArrowRight className="ml-3 " />
+              </span>
+            </button>
+          </div>
+        </Link>
       </div>
     </section>
   );
