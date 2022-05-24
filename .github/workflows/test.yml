@@ -9,9 +9,9 @@ jobs:
         with: 
             node-version: '17'
       - name: Add Node Module
-        run: pnpm install
+        run: npm install
       - name: Build project 
-        run: pnpm build
+        run: npm run build
       - name: Chnage Directory
         run: cd dist/
       - uses: amondnet/vercel-action@v20
