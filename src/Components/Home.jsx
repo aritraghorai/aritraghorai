@@ -3,7 +3,7 @@ import { HiArrowRight } from "react-icons/hi";
 import Link from "react-scroll/modules/components/Link";
 const Home = () => {
   return (
-    <section name="home" className="w-full h-screen bg-[#0a192f]">
+    <section name="home" className="w-full h-screen bg-myColor">
       {/* container */}
       <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
         <p className="text-pink-600"> Hi,My Name is</p>

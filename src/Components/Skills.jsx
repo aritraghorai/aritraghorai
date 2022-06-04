@@ -14,7 +14,7 @@ const Skills = () => {
   return (
     <section
       name="Skills"
-      className="bg-[#0a192f] text-gray-300 w-full h-screen sm:mt-[10vh]"
+      className="bg-myColor text-gray-300 w-full h-screen sm:mt-[10vh]"
     >
       '{/* Container */}
       <div className="max-w-[1000px]  flex flex-col justify-center w-full mx-auto h-full p-4">

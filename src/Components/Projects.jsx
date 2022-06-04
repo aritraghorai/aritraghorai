@@ -7,7 +7,7 @@ const Work = () => {
   return (
     <section
       name="Work"
-      className="w-full md:h-screen text-gray-300 bg-[#0a192f] sm:mt-[10vh]"
+      className="w-full md:h-screen text-gray-300 bg-myColor sm:mt-[10vh]"
     >
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">

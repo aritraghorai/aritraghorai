@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import logo from "../assets/logo.png";
+import myPhoto from "../assets/myPhoto.jpeg";
 import {
   FaBars,
   FaTimes,
@@ -13,9 +13,17 @@ const Navbar = () => {
   const [Nav, setNav] = useState(false);
   const handleClick = () => setNav(!Nav);
   return (
-    <nav className="fixed w-full h-[80px] sm:h-[40px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300">
-      <div>
-        <img src={logo} alt="Logo" style={{ width: "50px" }} />
+    <nav className="fixed w-full h-[50px] md:h-[100px] flex justify-between items-center px-4 bg-myColor text-gray-300 ">
+      <div className="flex justify-center items-center md:m-6">
+        <div className="myPhoto  w-10 h-10 md:w-[20] md:h-[20]">
+          <img
+            src={myPhoto}
+            alt="Logo"
+            className="rounded-full"
+            style={{ width: "50px" }}
+          />
+        </div>
+        <div className="name ml-2">Aritra Ghorai</div>
       </div>
 
       {/* desktop menu */}
