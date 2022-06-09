@@ -1,6 +1,6 @@
 import React from "react";
 
-const Projects_Components = ({
+const ProjectsComponents = ({
   projectImg,
   applicationTitle,
   pageUrl,
@@ -17,7 +17,7 @@ const Projects_Components = ({
           {applicationTitle}
         </span>
         <div className="pt-8 text-center">
-          <a href={pageUrl} target="_blank">
+          <a href={pageUrl} target="_blank" rel="noreferrer">
             <button
               className="text-center rounded-lg px-4 py-3 m-2 bg-white font-bold text-lg text-gray-700"
               type="submit"
@@ -25,7 +25,7 @@ const Projects_Components = ({
               Demo
             </button>
           </a>
-          <a href={githubUrl} target="_blank">
+          <a href={githubUrl} target="_blank" rel="noreferrer">
             <button
               className="text-center rounded-lg px-4 py-3 m-2 bg-white font-bold text-lg text-gray-700"
               type="submit"
@@ -39,4 +39,4 @@ const Projects_Components = ({
   );
 };
 
-export default Projects_Components;
+export default ProjectsComponents;

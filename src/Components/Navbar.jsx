@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import myPhoto from "../assets/myPhoto.jpeg";
+import myPhoto from "../assets/myPhoto.png";
 import {
   FaBars,
   FaTimes,
@@ -133,6 +133,7 @@ const Navbar = () => {
               target="_blank"
               href="https://www.linkedin.com/in/ghoraiaritra/"
               className="text-xl"
+              rel="noreferrer"
             >
               Linkedin
             </a>
@@ -143,6 +144,7 @@ const Navbar = () => {
               href="https://github.com/aritraghorai"
               target="_blank"
               className="text-xl"
+              rel="noreferrer"
             >
               Github
             </a>
@@ -153,6 +155,7 @@ const Navbar = () => {
               href="https://twitter.com/aritra1521"
               target="_blank"
               className="text-xl"
+              rel="noreferrer"
             >
               Twtter
             </a>
@@ -163,6 +166,7 @@ const Navbar = () => {
               href="mailto:aritra1521@gmail.com"
               target="_blank"
               className="text-xl"
+              rel="noreferrer"
             >
               Gmail
             </a>

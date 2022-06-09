@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import newsApp from "../assets/Projects/newsApp.png";
-import realState from "../assets/realestate.jpg";
 import weatherApp from "../assets/Projects/Weather-app.png";
-import Projects_Components from "./Projects_Components";
+import ProjectsComponents from "./ProjectsComponents";
 const Work = () => {
   return (
     <section
@@ -19,19 +19,18 @@ const Work = () => {
         {/* Work Demo Container */}
         <div className="grid sm:grid-cols-2 md:grid-col-3 gap-4">
           {/* Item 1 */}
-          <Projects_Components
+          <ProjectsComponents
             projectImg={newsApp}
             applicationTitle="News App Build Using News Api"
             pageUrl="https://github.com/aritraghorai/My-News-App"
             githubUrl="https://github.com/aritraghorai/My-News-App"
           />
-          <Projects_Components
+          <ProjectsComponents
             projectImg={weatherApp}
             applicationTitle="Weather App"
             pageUrl="https://weather-app-ten-amber.vercel.app"
             githubUrl="https://github.com/aritraghorai/Weather-App"
           />
-          {/* End item 3 */}
         </div>
       </div>
     </section>
