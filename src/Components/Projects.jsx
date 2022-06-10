@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import newsApp from "../assets/Projects/newsApp.png";
+import qrCode from "../assets/Projects/qrcode.png";
 import weatherApp from "../assets/Projects/Weather-app.png";
 import ProjectsComponents from "./ProjectsComponents";
 const Work = () => {
@@ -30,6 +31,12 @@ const Work = () => {
             applicationTitle="Weather App"
             pageUrl="https://weather-app-ten-amber.vercel.app"
             githubUrl="https://github.com/aritraghorai/Weather-App"
+          />
+          <ProjectsComponents
+            projectImg={qrCode}
+            applicationTitle="Qr Code Generator"
+            pageUrl="https://qrcode-generator-six.vercel.app/"
+            githubUrl="https://github.com/aritraghorai/qrcode-generator"
           />
         </div>
       </div>
