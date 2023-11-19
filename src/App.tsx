@@ -1,11 +1,10 @@
-import React from 'react'
-import About from './Components/About'
-import Contacts from './Components/Contacts'
-import Home from './Components/Home'
-import Navbar from './Components/Navbar'
-import Skills from './Components/Skills'
-import Work from './Components/Projects'
-import Footer from './Components/Footer'
+import About from "./Components/About";
+import Contacts from "./Components/Contacts";
+import Home from "./Components/Home";
+import Navbar from "./Components/Navbar";
+import Skills from "./Components/Skills";
+import Work from "./Components/Projects";
+import Footer from "./Components/Footer";
 
 const App = () => {
     return (
@@ -20,7 +19,7 @@ const App = () => {
                 <Footer />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default App
+export default App;

@@ -1,11 +1,9 @@
 /* eslint-disable quotes */
-/* eslint-disable react/jsx-no-comment-textnodes */
-import React from 'react'
 
 const Contacts = () => {
     return (
         <section
-            name="Contact"
+            id="Contact"
             className="w-full h-screen dark:bg-[#0a192f] flex justify-center items-center p-4 "
         >
             <form
@@ -18,8 +16,7 @@ const Contacts = () => {
                         Contact
                     </p>
                     <p className="dark:text-gray-300 pt-2">
-                        //Submit the from below or shoot me
-                        an email
+            //Submit the from below or shoot me an email
                     </p>
                 </div>
                 <input
@@ -38,13 +35,13 @@ const Contacts = () => {
                     id="email"
                     placeholder="Email"
                 />
-                <textArea
+                <textarea
                     name="message"
-                    rows="10"
+                    rows={10}
                     className="p-2 dark:bg-[#ccd6f6] bg-gray-100"
                     placeholder="message"
                     required
-                ></textArea>
+                ></textarea>
                 <button
                     type="submit"
                     className="dark:text-white hover:text-white border-2 hover:border-pink-600 hover:bg-pink-600 my-8 px-4 py-3 mx-auto flex items-center"
@@ -53,7 +50,7 @@ const Contacts = () => {
                 </button>
             </form>
         </section>
-    )
-}
+    );
+};
 
-export default Contacts
+export default Contacts;

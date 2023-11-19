@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Footer = () => (
     <div className="container mx-auto relative z-20 py-5 text-sm font-medium">
         <div className="grid grid-cols-1 lg:grid-cols-2  items-center justify-center">
@@ -60,6 +58,6 @@ const Footer = () => (
             </div>
         </div>
     </div>
-)
+);
 
-export default Footer
+export default Footer;
