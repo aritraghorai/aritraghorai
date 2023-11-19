@@ -1,0 +1,49 @@
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const About = () => {
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref1,
+    offset: ["0 1", "1.33 1"],
+  });
+  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
+  return (
+    <section
+      id="About"
+      className="w-full h-screen dark:bg-myColor  dark:text-gray-300"
+    >
+      <div className="flex flex-col justify-center items-center w-full h-full">
+        <div className="max-w-[1000px] w-full px-4 grid grid-cols-2 gap-8">
+          <div className="sm:text-right pb-8 pl-4">
+            <p className="text-4xl font-bold inline border-b-4 border-pink-600">
+              About
+            </p>
+          </div>
+          <div></div>
+        </div>
+        <div className="max-w-[1000px] w-full px-4 grid sm:grid-cols-2 gap-8 ">
+          <div ref={ref1}>
+            <p className="sm:text-right text-4xl font-bold">
+              I’m a web & soft­ware devel­op­er from Kolkata,India.
+            </p>
+          </div>
+          <div ref={ref2}>
+            <p>
+              I like to code things from scratch, and enjoy bringing ideas to
+              life in the browser. 🔭 I’m currently working on JavaScript
+              Devoloper 🌱 Trying to learn Web Devolopment. 💬 Ask me about Any
+              Web Devopment Project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

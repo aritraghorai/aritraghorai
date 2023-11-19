@@ -1,0 +1,28 @@
+{
+    "skills": [
+        {
+            "name": "HTML",
+            "icon": "/Skills/html.png"
+        },
+        {
+            "name": "CSS",
+            "icon": "/Skills/css.png"
+        },
+        {
+            "name": "Javascript",
+            "icon": "/Skills/javascript.png"
+        },
+        {
+            "name": "React",
+            "icon": "/Skills/react.png"
+        },
+        {
+            "name": "Github",
+            "icon": "/Skills/github.png"
+        },
+        {
+            "name": "Mongo DB",
+            "icon": "/Skills/mongo.png"
+        }
+    ]
+}

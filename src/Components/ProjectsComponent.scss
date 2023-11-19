@@ -1,0 +1,32 @@
+.bg-overlay {
+    position: relative;
+}
+.bg-overlay {
+    @media (max-width: 767px) {
+        height: 200px;
+    }
+
+    picture {
+        height: 100%;
+        width: 100%;
+        transition: 0.3s filter;
+        filter: grayscale(100%);
+        @media (max-width: 768px) {
+            filter: none;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.project {
+    &:hover {
+        .bg-overlay {
+            picture {
+                filter: none;
+                transition: scale(1.1);
+            }
+        }
+    }
+}
