@@ -27,7 +27,7 @@ const textVariable = {
 
 const Home = () => {
   return (
-    <motion.section id="home" className="w-full h-screen dark:bg-myColor">
+    <section id="home" className="w-full h-screen dark:bg-myColor">
       {/* container */}
       <motion.div
         variants={textVariable}
@@ -89,7 +89,7 @@ const Home = () => {
           </motion.div>
         </Link>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -34,7 +34,7 @@ const Navbar = () => {
     }
   }, [theme]);
   return (
-    <nav className="z-10 flex justify-between fixed  w-full items-center h-[4rem] dark:bg-myColor dark:text-gray-300 text-black bg-gray-200">
+    <nav className="z-10 flex w-[100vw] justify-between fixed items-center h-[4rem] dark:bg-myColor dark:text-gray-300 text-black bg-gray-200">
       <div className="flex justify-center items-center ml-2 md:ml-[10rem] ">
         <img src={myPhoto} alt="Logo" className="rounded-full w-8 md:w-12" />
         <div className="name ml-2 ">Aritra Ghorai</div>
