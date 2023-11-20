@@ -10,7 +10,13 @@ const About = () => {
         <div className="max-w-[1000px] w-full px-4 grid grid-cols-2 gap-8">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 1,
+              },
+            }}
             className="sm:text-right pb-8 pl-4"
           >
             <p className="text-4xl font-bold inline border-b-4 border-pink-600">
@@ -21,7 +27,14 @@ const About = () => {
         <div className="max-w-[1000px] w-full px-4 grid sm:grid-cols-2 gap-8 ">
           <motion.div
             initial={{ y: 100, opacity: 0, x: -100 }}
-            whileInView={{ x: 0, y: 0, opacity: 1 }}
+            whileInView={{
+              x: 0,
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 1,
+              },
+            }}
           >
             <p className="sm:text-right text-4xl font-bold">
               I’m a web & soft­ware devel­op­er from Kolkata,India.
@@ -29,7 +42,14 @@ const About = () => {
           </motion.div>
           <motion.div
             initial={{ y: 100, opacity: 0, x: 100 }}
-            whileInView={{ x: 0, y: 0, opacity: 1 }}
+            whileInView={{
+              x: 0,
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 1,
+              },
+            }}
           >
             <p>
               I like to code things from scratch, and enjoy bringing ideas to
