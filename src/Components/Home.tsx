@@ -1,6 +1,6 @@
 import { HiArrowRight } from "react-icons/hi";
-import Link from "react-scroll/modules/components/Link";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const textVariable = {
   initial: {
@@ -73,7 +73,7 @@ const Home = () => {
           every problem has a solution and everything is achievable through team
           effort.
         </motion.p>
-        <Link to="Work" duration={500} offset={50}>
+        <Link to="/projects">
           <motion.div
             variants={textVariable}
             initial="initial"
