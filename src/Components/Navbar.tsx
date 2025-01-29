@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import myPhoto from "../assets/myPhoto.png";
+import myPhoto from "../assets/myPhoto.png?w=300&format=webp";
+import srcsetAvif from "../assets/myPhoto.png?w=300;500;700;900;1200&format=avif&as=srcset";
+import srcsetWebp from "../assets/myPhoto.png?w=300;500;700;900;1200&format=avif&as=webp";
+
 import {
   FaBars,
   FaTimes,
@@ -9,7 +12,9 @@ import {
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router";
+import ResponsiveImage from "@/Component/ResponsiveImage";
 const Navbar = () => {
+  console.log(srcsetAvif);
   const [Nav, setNav] = useState(false);
   const handleClick = () => setNav(!Nav);
   const [theme, toggleTheme] = useState("light");
@@ -36,7 +41,17 @@ const Navbar = () => {
   return (
     <nav className="z-10 flex w-[100vw] justify-between fixed items-center h-[4rem] dark:bg-myColor dark:text-gray-300 text-black bg-gray-200">
       <div className="flex justify-center items-center ml-2 md:ml-[10rem] ">
-        <img src={myPhoto} alt="Logo" className="rounded-full w-8 md:w-12" />
+        {/* <img
+          src="myPhoto.png?w=300&format=webp"
+          alt="Logo"
+          className="rounded-full w-8 md:w-12"
+        /> */}
+        <ResponsiveImage
+          srcsetAvif={srcsetAvif}
+          srcsetWebp={srcsetWebp}
+          className="rounded-full w-8 md:w-12"
+          placeholder={myPhoto}
+        />
         <div className="name ml-2 ">Aritra Ghorai</div>
       </div>
 
