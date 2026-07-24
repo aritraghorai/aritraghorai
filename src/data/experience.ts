@@ -8,28 +8,36 @@ export type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Full Stack Developer",
-    company: "Freelance / Personal Projects",
-    duration: "2022 — Present",
+    role: "Software Engineer 2",
+    company: "Current Role (Hyderabad, India)",
+    duration: "2023 — 2025",
     description:
-      "Building full-stack web applications using React, Node.js, and MongoDB. Focused on creating performant, accessible, and visually polished interfaces. Shipped multiple production apps including a real-time chat app, drawing tool, and weather dashboard.",
-    tech: ["React", "TypeScript", "Node.js", "MongoDB", "Socket.io"],
+      "Working as a Node.js full-stack developer, building with React on the frontend and Express on the backend. Managed multiple standalone frontend repositories and consolidated them into a unified micro-frontend architecture with Module Federation to enable shared components, consistent design systems, and cross-repo reuse. Implemented reusable federation modules to reduce duplication and streamline deployments. Built a Node.js-based JMeter runner for QA automation to run performance suites, parameterize environments, and collect reports.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "Module Federation",
+      "Micro Frontends",
+      "JMeter",
+    ],
   },
   {
-    role: "Frontend Developer Intern",
-    company: "Open Source Contributions",
-    duration: "2021 — 2022",
+    role: "Fullstack Engineer",
+    company: "ThirdEye Data (Kolkata)",
+    duration: "2022 — 2023",
     description:
-      "Contributed to open-source React projects, improving UI components and fixing accessibility bugs. Learned collaborative development workflows including Git branching, code reviews, and pull request conventions.",
-    tech: ["React", "JavaScript", "CSS", "GitHub"],
-  },
-  {
-    role: "Computer Science Student",
-    company: "University / Self-Study",
-    duration: "2020 — 2022",
-    description:
-      "Studied core computer science fundamentals including data structures, algorithms, and software engineering principles. Actively solved 200+ problems on LeetCode and built personal projects to deepen practical skills.",
-    tech: ["C++", "Java", "Data Structures", "Algorithms", "LeetCode"],
+      "Built cross-platform mobile applications with Cordova and developed robust backends using Django, alongside extensive internal projects using React and TypeScript. Expanded into Flask and Node.js with growing focus on serverless architectures, Docker, and CI/CD practices while contributing to impactful product delivery.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Django",
+      "Cordova",
+      "Flask",
+      "Node.js",
+      "Docker",
+      "CI/CD",
+    ],
   },
 ];
 
