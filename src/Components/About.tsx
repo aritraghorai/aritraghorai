@@ -21,9 +21,7 @@ const About = () => {
           className="flex items-center gap-4 mb-12"
         >
           <span className="text-accent font-mono text-sm">01.</span>
-          <h2 className="text-3xl font-bold text-textPrimary">
-            About Me
-          </h2>
+          <h2 className="text-3xl font-bold text-textPrimary">About Me</h2>
           <div className="flex-1 h-px bg-borderSoft max-w-xs" />
         </motion.div>
 

@@ -17,9 +17,7 @@ const Blog = () => {
           className="flex items-center gap-4 mb-12"
         >
           <span className="text-accent font-mono text-sm">05.</span>
-          <h2 className="text-3xl font-bold text-textPrimary">
-            Writing
-          </h2>
+          <h2 className="text-3xl font-bold text-textPrimary">Writing</h2>
           <div className="flex-1 h-px bg-borderSoft max-w-xs" />
         </motion.div>
 
@@ -52,9 +50,7 @@ const Blog = () => {
                 <span className="text-accent font-mono text-xs">
                   {post.platform}
                 </span>
-                <span className="text-textSecondary text-xs">
-                  {post.date}
-                </span>
+                <span className="text-textSecondary text-xs">{post.date}</span>
               </div>
               <h3 className="text-textPrimary font-semibold text-sm leading-snug mb-3 group-hover:text-accent transition-colors">
                 {post.title}

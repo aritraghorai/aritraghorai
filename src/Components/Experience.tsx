@@ -16,9 +16,7 @@ const Experience = () => {
           className="flex items-center gap-4 mb-16"
         >
           <span className="text-accent font-mono text-sm">02.</span>
-          <h2 className="text-3xl font-bold text-textPrimary">
-            Experience
-          </h2>
+          <h2 className="text-3xl font-bold text-textPrimary">Experience</h2>
           <div className="flex-1 h-px bg-borderSoft max-w-xs" />
         </motion.div>
 
