@@ -1,93 +1,127 @@
-import { HiArrowRight } from "react-icons/hi";
+import { useState, useEffect } from "react";
+import { HiArrowRight, HiDownload } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { Link } from "react-router";
 
-const textVariable = {
-  initial: {
-    x: -500,
-    opacity: 0,
-  },
+const roles = [
+  "Full Stack Developer.",
+  "React Enthusiast.",
+  "Problem Solver.",
+  "Open Source Contributor.",
+];
+
+const containerVariants = {
+  initial: { opacity: 0 },
   animate: {
-    x: 0,
     opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-    },
-  },
-  scrollButton: {
-    opacity: 0,
-    y: 10,
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-    },
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
   },
 };
 
+const itemVariants = {
+  initial: { x: -40, opacity: 0 },
+  animate: { x: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 const Home = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayed.length < current.length) {
+      timeout = setTimeout(
+        () => setDisplayed(current.slice(0, displayed.length + 1)),
+        80,
+      );
+    } else if (!isDeleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 1800);
+    } else if (isDeleting && displayed.length > 0) {
+      timeout = setTimeout(
+        () => setDisplayed(current.slice(0, displayed.length - 1)),
+        45,
+      );
+    } else if (isDeleting && displayed.length === 0) {
+      setIsDeleting(false);
+      setRoleIndex((i) => (i + 1) % roles.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, roleIndex]);
+
   return (
-    <section id="home" className="w-full h-screen dark:bg-myColor">
-      {/* container */}
+    <section
+      id="home"
+      className="relative w-full min-h-screen bg-page flex items-center overflow-hidden"
+    >
+      {/* Dot grid background */}
+      <div className="absolute inset-0 dot-grid-bg opacity-20 pointer-events-none dark:opacity-25" />
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5 pointer-events-none dark:to-black/10" />
+
+      {/* Content */}
       <motion.div
-        variants={textVariable}
+        variants={containerVariants}
         initial="initial"
         animate="animate"
-        className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full"
+        className="relative max-w-3xl mx-auto px-8 md:px-16 pt-24 pb-16"
       >
         <motion.p
-          variants={textVariable}
-          initial="initial"
-          animate="animate"
-          className="dark:text-pink-600 text-black"
+          variants={itemVariants}
+          className="text-accent font-mono text-sm mb-4 tracking-wider"
         >
-          {" "}
-          Hi,My Name is
+          Hi, my name is
         </motion.p>
+
         <motion.h1
-          variants={textVariable}
-          initial="initial"
-          animate="animate"
-          className="text-4xl sm:text-7xl font-bold dark:text-[#ccd6fd]"
+          variants={itemVariants}
+          className="text-5xl sm:text-7xl font-bold text-textPrimary leading-tight"
         >
           Aritra Ghorai
         </motion.h1>
+
         <motion.h2
-          variants={textVariable}
-          initial="initial"
-          animate="animate"
-          className="text-4xl sm:text-7xl font-bold text-[#8892b0]"
+          variants={itemVariants}
+          className="text-3xl sm:text-5xl font-bold text-textSecondary mt-2 h-14 sm:h-16"
         >
-          I'm a Full Stack Devoloper.
+          {displayed}
+          <span className="typewriter-cursor text-accent ml-0.5">|</span>
         </motion.h2>
+
         <motion.p
-          variants={textVariable}
-          initial="initial"
-          animate="animate"
-          className="dark:text-[#8892b0] py-4 max-w-[700px]"
+          variants={itemVariants}
+          className="text-textSecondary mt-6 max-w-xl leading-relaxed text-base"
         >
-          I am a web developer and problem solver who loves React.js and solving
-          new problems on leetcode. I am keen to learn new skills and ways to do
-          projects to perfection with a prime focus on optimization and
-          performance which also looks good and professional. I believe that
-          every problem has a solution and everything is achievable through team
-          effort.
+          I'm a web developer and problem solver who loves building fast,
+          accessible, and visually polished products. I focus on React.js,
+          TypeScript, and Node.js — always learning, always shipping.
         </motion.p>
-        <Link to="/projects">
-          <motion.div
-            variants={textVariable}
-            initial="initial"
-            animate="animate"
-            className="group"
+
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap gap-4 mt-8"
+        >
+          <button
+            onClick={() => {
+              const el = document.getElementById("projects");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="group flex items-center gap-2 border border-accent text-accent px-6 py-3 rounded text-sm font-medium hover:bg-accentDim transition-colors duration-200"
           >
-            <button className=" dark:text-white border-2 border-black dark:border-white px-6 py-3 flex items-center hover:bg-pink-600 hover:border-pink-600 hover:text-white">
-              View Project
-              <span className="group-hover:rotate-90 duration-300">
-                <HiArrowRight className="ml-3 " />
-              </span>
-            </button>
-          </motion.div>
-        </Link>
+            View Projects
+            <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <a
+            href="/resume.pdf"
+            download
+            className="group flex items-center gap-2 bg-accent text-white px-6 py-3 rounded text-sm font-semibold hover:shadow-lg hover:shadow-accent/50 hover:scale-105 transition-all duration-300 active:scale-95"
+          >
+            Download Resume
+            <HiDownload className="group-hover:animate-bounce" />
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import "./ProjectsComponent.scss";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 type Props = {
   title: string;
@@ -9,6 +9,7 @@ type Props = {
   demo?: string;
   languages: string[];
   img: string;
+  index?: number;
 };
 
 const ProjectComponent = ({
@@ -18,179 +19,83 @@ const ProjectComponent = ({
   demo,
   languages,
   img,
+  index = 0,
 }: Props) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1 1"],
   });
-  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
 
   return (
     <motion.div
-      className="project mx-4 md:mx-0 "
       ref={ref}
-      style={{
-        scale: scaleProgess,
-        opacity: opacityProgess,
+      style={{ scale: scaleProgress, opacity: opacityProgress }}
+      initial={{ y: 20, opacity: 0 }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.4, delay: index * 0.05 },
       }}
+      viewport={{ once: true }}
     >
-      <div
-        className="
-        grid grid-cols-1
-        md:grid-cols-3
-        border
-        dark:border-gray-700
-        rounded-md
-        bg-white
-        dark:bg-gray-800
-        shadow-md
-        hover:shadow-lg
-        overflow-hidden
-        z-1
-        relative
-      "
-      >
-        <div
-          className="
-          bg-overlay
-          flex
-          items-center
-          justify-center
-          bg-cover bg-center
-          border-b
-          md:border-r md:border-b-0
-          dark:border-gray-700
-        "
-        >
-          <picture className="flex h-full w-full">
-            <source
-              type="image/webp"
-              src={img}
-              className="h-full w-auto object-cover"
-            />
-            <source
-              type="image/png"
-              src={img}
-              className="h-full w-auto object-cover"
-            />
-            <img
-              alt={title}
-              src={img}
-              title={`${title} -Aritra Ghorai`}
-              className="h-full w-auto object-cover"
-            />
-          </picture>
+      <div className="grid grid-cols-1 md:grid-cols-3 border border-borderSoft rounded-lg bg-surface hover:border-accent/40 transition-colors duration-300 overflow-hidden group">
+        {/* Image */}
+        <div className="flex items-center justify-center overflow-hidden border-b border-borderSoft md:border-b-0 md:border-r h-48 md:h-auto">
+          <img
+            alt={title}
+            src={img}
+            title={`${title} — Aritra Ghorai`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         </div>
-        <div className="col-span-2 p-5 md:p-7 lg:p-10">
-          <h5 className="mb-4 font-semibold dark:text-white">{title}</h5>
-          <p className="dark:text-white">{description}</p>
-          <div>
+
+        {/* Content */}
+        <div className="col-span-2 p-6 md:p-8 flex flex-col">
+          <h3 className="text-textPrimary font-semibold text-base mb-2 group-hover:text-accent transition-colors">
+            {title}
+          </h3>
+          <p className="text-textSecondary text-sm leading-relaxed mb-4">
+            {description}
+          </p>
+
+          {/* Tech tags */}
+          <div className="flex flex-wrap gap-2 mb-5">
             {languages.map((la) => (
-              <div
+              <span
                 key={la}
-                className="
-                    inline-block
-                    px-3
-                    py-2
-                    font-semibold
-                    text-xs
-                    dark:text-white
-                    border border-blue-500
-                    rounded-md
-                    mt-3
-                    mr-3
-                  "
+                className="text-accent font-mono text-xs bg-page border border-borderSoft px-2 py-0.5 rounded"
               >
                 {la}
-              </div>
+              </span>
             ))}
           </div>
-          {demo && (
+
+          {/* Links */}
+          <div className="flex gap-4 mt-auto">
+            {demo && (
+              <a
+                href={demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-medium text-accent border border-accent px-3 py-1.5 rounded hover:bg-accentDim transition-colors"
+              >
+                <FaExternalLinkAlt size={12} />
+                Live Demo
+              </a>
+            )}
             <a
-              href={demo}
+              href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="
-            inline-flex
-            items-center
-            justify-center
-            pl-4
-            pr-3
-            py-2
-            font-bold
-            text-sm
-            bg-blue-500
-            hover:bg-blue-400
-            focus:bg-blue-600
-            text-white
-            rounded-full
-            shadow-sm
-            hover:shadow-md
-            focus:shadow-sm
-            mt-5
-            mr-3
-          "
+              className="flex items-center gap-1.5 text-sm font-medium text-textSecondary border border-borderSoft px-3 py-1.5 rounded hover:border-accent/50 hover:text-textPrimary transition-colors"
             >
-              Live Demo
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
+              <FaGithub size={14} />
+              Source
             </a>
-          )}
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-            inline-flex
-            items-center
-            justify-center
-            pl-4
-            pr-3
-            py-2
-            font-bold
-            text-sm
-            bg-blue-500
-            hover:bg-blue-400
-            focus:bg-blue-600
-            text-white
-            rounded-full
-            shadow-sm
-            hover:shadow-md
-            focus:shadow-sm
-            mt-5
-            mr-3
-          "
-          >
-            View Source
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 ml-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
+          </div>
         </div>
       </div>
     </motion.div>
